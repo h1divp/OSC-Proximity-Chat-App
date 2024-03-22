@@ -3,7 +3,6 @@ import Message from './ChatMessage'
 import { FlatList, StyleSheet, View } from 'react-native'
 import { MessageChannelProps } from '../../types/Props';
 
-
 const MessageChannel: React.FC<MessageChannelProps> = ({ messages }) => {
   const reverseMessages = [...messages].reverse()
 
@@ -17,7 +16,7 @@ const MessageChannel: React.FC<MessageChannelProps> = ({ messages }) => {
         renderItem={({ item }) => (
           <Message
             messageContent={item.msgContent}
-            author={item.author.uid} // TODO: call server to get author name from UID. Or should this stored with MessageType?
+            authorUid={item.author.uid} // TODO: call server to get author name from UID. Or should this stored with MessageType?
             time={item.timeSent}
           />
         )}

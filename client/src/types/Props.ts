@@ -24,7 +24,7 @@ export type ChatInputProps = {
 export type MessageProps =  {
     messageContent: string;
     time: number;
-    author: string;
+    authorUid: string;
 }
 
 export type MessageChannelProps = {

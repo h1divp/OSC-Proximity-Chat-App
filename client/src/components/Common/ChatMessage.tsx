@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { View, StyleSheet, Text, Image, Dimensions } from "react-native";
 import { useSettings } from "../../contexts/SettingsContext";
 import { MessageProps } from "../../types/Props";
+import { ConnectedUserType } from "../../types/ConnectedUserType";
+import { fetcher } from "../../utils/fetcher";
 
-const Message: React.FC<MessageProps> = ({ messageContent, time, author }) => {
+
+const Message: React.FC<MessageProps> = ({ messageContent, time, authorUid }) => {
   const settings = useSettings();
+  const [userData, setUserData] = useState<ConnectedUserType>()
   const timestamp = new Date(time).toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
@@ -14,6 +18,16 @@ const Message: React.FC<MessageProps> = ({ messageContent, time, author }) => {
     ...styles.authorStyle,
     color: settings && settings.theme != "light" ? "white" : "black",
   };
+
+  useEffect(() => {
+    const getUserData = async (authorUid: string) => {
+      const data = await fetcher(`users?userId=${authorUid}`)
+      if (data !== undefined) setUserData(data)
+    }
+    console.log(authorUid, messageContent, time)
+    getUserData(authorUid)
+  }, [])
+
   return (
     <View style={styles.container}>
       <View style={styles.profileImageContainer}>
@@ -24,7 +38,7 @@ const Message: React.FC<MessageProps> = ({ messageContent, time, author }) => {
       </View>
       <View style={styles.contentContainer}>
         <View style={styles.messageHeader}>
-          <Text style={authorStyleProps}>{author}</Text>
+          <Text style={authorStyleProps}>{userData?.displayName}</Text>
           <Text
             style={{
               color: settings && settings.theme != "light" ? "white" : "black",

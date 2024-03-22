@@ -58,7 +58,7 @@ const ChatScreen = () => {
     if (messageContent.trim() !== "") {
       const newMessage: MessageType = {
         author: {
-          uid: String(userAuth.userAuthInfo?.uid), 
+          uid: String(socket?.id), 
         },
         msgId: Crypto.randomUUID(), 
         msgContent: messageContent.trim(),
