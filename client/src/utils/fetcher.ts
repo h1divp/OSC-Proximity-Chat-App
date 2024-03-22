@@ -1,6 +1,7 @@
 import {EXPO_IP, EXPO_PUBLIC_BACKEND_PORT} from "@env"; // Don't worry about this env error!
 
 // Fetcher: Uses fetch to communicate to the server
+// TODO: come up with a better name. fetch utilities may need to incorperate POST/PUT requests, contain body data, etc.
 export const fetcher = async (path: string) => {
   try {
     const serverUrl = `${EXPO_IP}:${EXPO_PUBLIC_BACKEND_PORT}`

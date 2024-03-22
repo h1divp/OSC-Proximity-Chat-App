@@ -1,3 +1,4 @@
+// TODO: Integrate into User.ts
 export interface ConnectedUserType {
   uid: string
   socketId: string
