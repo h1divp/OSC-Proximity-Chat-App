@@ -1,5 +1,5 @@
 declare module "@env" {
-  export const EXPO_IP: string;
+  export const BACKEND_IP: string;
   export const API_KEY: string,
     AUTH_DOMAIN: string,
     PROJECT_ID: string,

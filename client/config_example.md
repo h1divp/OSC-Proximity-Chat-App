@@ -4,11 +4,11 @@
 
 # Shake your phone to open the developer menu. The IP address will be displayed on the connection.
 
-EXPO_IP= place_your_expo_ip_here
+BACKEND_IP = place_your_expo_ip_here
 
 # For location refresh rate in milliseconds (keep it 3000 for now)
 
-LOCATION_REFRESH_RATE=3000
+LOCATION_REFRESH_RATE = 3000
 
 # Firebase config
 

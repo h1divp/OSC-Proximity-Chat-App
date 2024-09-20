@@ -1,4 +1,4 @@
-import { EXPO_IP } from "@env";
+import { BACKEND_IP } from "@env";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
@@ -25,7 +25,7 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 
     const initializeSocket = async () => {
       const token = await getToken();
-      const socketIo = io(`http://${EXPO_IP}:8080`, {
+      const socketIo = io(`http://${BACKEND_IP}:8080`, {
         auth: {
           token,
         },
