@@ -26,7 +26,7 @@ const ChatScreen = () => {
   const location = useLocation();
   const user = useUser();
   const userAuth = AuthStore.useState();
-  // Note: To prevent complexity, all user information is grabbed from different contexts and services. If we wanted most information inside of UserContext, we would have to import contexts within contexts and have state change as certain things mount, which could cause errors that are difficult to pinpoint.
+  // Note: To prevent complexity, all user information is grabbed from different contexts and services. If we wanted most information to be kept inside of UserContext only, we would have to import contexts within contexts and have state change as certain things mount, which could cause errors that are difficult to pinpoint.
 
   // Message loading and sending logic
   const [messages, setMessages] = useState<Message[]>([]);
